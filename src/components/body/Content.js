@@ -13,30 +13,48 @@ function Content() {
   return (
     <div>
       <div style={userTitle}>{userName}'s 4 Year Plan</div>
-      <CourseBar
-        majorCredits={majorCredits}
-        maxCredits={127}
-        currentCredits={64}
-        section={'Total Credits'}
-        mainColor={'red'}
-        subColor={'pink'}
-      />
-      <CourseBar
-        majorCredits={majorCredits}
-        maxCredits={48}
-        currentCredits={0}
-        section={'Computer Science'}
-        mainColor={'orange'}
-        subColor={'yellow'}
-      />
-      <CourseBar
-        majorCredits={majorCredits}
-        maxCredits={24}
-        currentCredits={12}
-        section={'Computer Science'}
-        mainColor={'orange'}
-        subColor={'yellow'}
-      />
+      <div style={{ width: window.innerWidth * 0.8 }}>
+        <CourseBar
+          majorCredits={majorCredits}
+          maxCredits={127}
+          currentCredits={64}
+          section={'Total Credits'}
+          mainColor={'red'}
+          subColor={'pink'}
+        />
+        <CourseBar
+          majorCredits={majorCredits}
+          maxCredits={52}
+          currentCredits={24}
+          section={'Computer Science'}
+          mainColor={'magenta'}
+          subColor={'pink'}
+        />
+        <CourseBar
+          majorCredits={majorCredits}
+          maxCredits={24}
+          currentCredits={12}
+          section={'Mathematics'}
+          mainColor={'lightblue'}
+          subColor={'azure'}
+        />
+        <CourseBar
+          majorCredits={majorCredits}
+          maxCredits={18}
+          currentCredits={12}
+          section={'Natural Sciences'}
+          mainColor={'green'}
+          subColor={'lightgreen'}
+        />
+        <CourseBar
+          majorCredits={majorCredits}
+          maxCredits={16}
+          currentCredits={12}
+          section={'Humanities'}
+          mainColor={'orange'}
+          subColor={'yellow'}
+        />
+      </div>
     </div>
   );
 }
@@ -45,7 +63,7 @@ const userTitle = {
   fontWeight: 'bold',
   fontSize: 'xx-large',
   color: 'navy',
-  marginLeft: '5rem',
+  marginLeft: '5%',
   marginTop: '2rem',
   marginBottom: '3rem',
 };

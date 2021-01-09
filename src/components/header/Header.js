@@ -22,13 +22,13 @@ const titleStyle = {
   fontSize: 'xxx-large',
   float: 'left',
   display: 'inline',
+  marginLeft: '5%',
 };
 
 const bannerStyle = {
   height: '5rem',
   backgroundColor: '#3399ff',
   textAlign: 'left',
-  paddingLeft: '5rem',
 };
 
 export default Header;

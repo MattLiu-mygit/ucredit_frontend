@@ -7,8 +7,8 @@ function CourseBar(props) {
   const maxPercentage = props.maxCredits / props.majorCredits;
   const totalWidth =
     props.maxCredits === props.majorCredits
-      ? 0.85 * width * maxPercentage
-      : 1.25 * width * maxPercentage;
+      ? 0.65 * width * maxPercentage
+      : width * maxPercentage;
   // States
   const [creditPercentage, setCreditPercentage] = useState(
     props.currentCredits / props.maxCredits
@@ -17,12 +17,14 @@ function CourseBar(props) {
 
   // On init
   useEffect(() => {
-    console.log('progressWidth', progressWidth);
-    console.log('creditPercentage', creditPercentage);
+    // console.log('progressWidth', progressWidth);
+    // console.log('creditPercentage', creditPercentage);
     if (props.currentCredits / props.maxCredits !== creditPercentage) {
       setCreditPercentage(props.currentCredits / props.maxCredits);
     }
+    console.log('creditPercentage', props.section, creditPercentage);
     const tot = (totalWidth - 0.04 * width) * creditPercentage;
+    console.log('tot is ', tot, totalWidth - 0.04 * width);
     setProgressWidth(tot);
   }, [props, progressWidth, creditPercentage, totalWidth]);
 
@@ -36,7 +38,7 @@ function CourseBar(props) {
     borderTopLeftRadius: '0rem',
     textAlign: 'right',
     fontWeight: 'bold',
-    paddingRight: '2.5%',
+    paddingRight: width * 0.015,
   };
 
   const progressBar = {
@@ -51,7 +53,7 @@ function CourseBar(props) {
 
   const totalBar = {
     backgroundColor: subColor,
-    width: totalWidth - width * 0.04,
+    width: totalWidth - width * 0.03,
     height: '3rem',
     borderRadius: '0.5rem',
     borderTopLeftRadius: '0rem',
@@ -101,10 +103,11 @@ function CourseBar(props) {
   return (
     <div
       style={{
-        width: '65%',
+        width: totalWidth,
         height: '6rem',
-        marginLeft: '5rem',
+        marginLeft: '7%',
         marginTop: '1rem',
+        float: 'left',
       }}
     >
       {/* <div style={titleTab}></div> */}
@@ -112,7 +115,7 @@ function CourseBar(props) {
         <div style={totalBar}>
           <div style={progressBar}></div>
         </div>
-        <div style={totalNum}>{props.maxCredits}</div>
+        <div style={totalNum}>{props.maxCredits - props.currentCredits}</div>
       </div>
       <div style={title}>
         {props.section}: {props.maxCredits}
