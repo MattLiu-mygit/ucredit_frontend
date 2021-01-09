@@ -22,7 +22,7 @@ const titleStyle = {
   fontSize: 'xxx-large',
   float: 'left',
   display: 'inline',
-  marginLeft: '5%',
+  marginLeft: '4.5%',
 };
 
 const bannerStyle = {

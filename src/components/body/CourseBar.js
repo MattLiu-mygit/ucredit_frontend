@@ -26,27 +26,26 @@ function CourseBar(props) {
     const tot = (totalWidth - 0.04 * width) * creditPercentage;
     console.log('tot is ', tot, totalWidth - 0.04 * width);
     setProgressWidth(tot);
-  }, [props, progressWidth, creditPercentage, totalWidth]);
+  }, [props, progressWidth, creditPercentage, totalWidth, width]);
 
   // State-dependent Styles
   const courseBar = {
     backgroundColor: mainColor,
-    transform: 'skewX(-15deg)',
+    //transform: 'skewX(-15deg)',
     width: totalWidth,
     height: '3rem',
-    borderRadius: '0.5rem',
-    borderTopLeftRadius: '0rem',
+    borderRadius: '2rem',
     textAlign: 'right',
     fontWeight: 'bold',
     paddingRight: width * 0.015,
+    color: 'whitesmoke',
   };
 
   const progressBar = {
     backgroundColor: mainColor,
     width: progressWidth,
     height: '2.25rem',
-    borderRadius: '0.5rem',
-    borderTopLeftRadius: '0rem',
+    borderRadius: '2rem',
     paddingTop: '0.75rem',
     paddingRight: '5%rem',
   };
@@ -55,22 +54,21 @@ function CourseBar(props) {
     backgroundColor: subColor,
     width: totalWidth - width * 0.03,
     height: '3rem',
-    borderRadius: '0.5rem',
-    borderTopLeftRadius: '0rem',
+    borderRadius: '2rem',
   };
 
-  const titleTab = {
-    backgroundColor: mainColor,
-    marginTop: '1rem',
-    width: '12rem',
-    height: '1rem',
-    padding: '0.5rem',
-    transform: 'perspective(1rem) rotateX(2.5deg)',
-    marginLeft: '0.675em',
-    borderTopLeftRadius: '0.5rem',
-    borderTopRightRadius: '0.5rem',
-    fontWeight: 'bold',
-  };
+  // const titleTab = {
+  //   backgroundColor: mainColor,
+  //   marginTop: '1rem',
+  //   width: '12rem',
+  //   height: '1rem',
+  //   padding: '0.5rem',
+  //   transform: 'perspective(1rem) rotateX(2.5deg)',
+  //   marginLeft: '0.675em',
+  //   borderTopLeftRadius: '0.5rem',
+  //   borderTopRightRadius: '0.5rem',
+  //   fontWeight: 'bold',
+  // };
 
   const title = {
     position: 'relative',
@@ -95,6 +93,7 @@ function CourseBar(props) {
         ? progressWidth - width * 0.03
         : width * 0.01,
     width: '2rem',
+    color: 'whitesmoke',
     fontWeight: 'bold',
   };
 

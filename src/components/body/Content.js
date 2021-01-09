@@ -1,19 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import CourseBar from './CourseBar';
+import CourseList from './CourseList';
 
 function Content() {
   const [userName, setUserName] = useState('');
   const [majorCredits, setMajorCredits] = useState(0);
 
   useEffect(() => {
-    setUserName('Matt');
+    setUserName('Matthew Liu');
     setMajorCredits(127);
   }, []);
 
   return (
     <div>
       <div style={userTitle}>{userName}'s 4 Year Plan</div>
-      <div style={{ width: window.innerWidth * 0.8 }}>
+      <div style={{ width: window.innerWidth * 0.7 }}>
         <CourseBar
           majorCredits={majorCredits}
           maxCredits={127}
@@ -24,8 +25,16 @@ function Content() {
         />
         <CourseBar
           majorCredits={majorCredits}
-          maxCredits={52}
-          currentCredits={24}
+          maxCredits={28}
+          currentCredits={18}
+          section={'General Electives'}
+          mainColor={'blue'}
+          subColor={'lightblue'}
+        />
+        <CourseBar
+          majorCredits={majorCredits}
+          maxCredits={24}
+          currentCredits={18}
           section={'Computer Science'}
           mainColor={'magenta'}
           subColor={'pink'}
@@ -55,6 +64,7 @@ function Content() {
           subColor={'yellow'}
         />
       </div>
+      <CourseList />
     </div>
   );
 }
@@ -63,7 +73,7 @@ const userTitle = {
   fontWeight: 'bold',
   fontSize: 'xx-large',
   color: 'navy',
-  marginLeft: '5%',
+  marginLeft: '4.5%',
   marginTop: '2rem',
   marginBottom: '3rem',
 };
