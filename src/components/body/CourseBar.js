@@ -1,7 +1,132 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
-function CourseBar() {
-  return <div></div>;
+function CourseBar(props) {
+  const mainColor = props.mainColor;
+  const subColor = props.subColor;
+  const width = window.innerWidth;
+  const maxPercentage = props.maxCredits / props.majorCredits;
+  const totalWidth =
+    props.maxCredits === props.majorCredits
+      ? 0.85 * width * maxPercentage
+      : 1.25 * width * maxPercentage;
+  // States
+  const [creditPercentage, setCreditPercentage] = useState(
+    props.currentCredits / props.maxCredits
+  );
+  const [progressWidth, setProgressWidth] = useState(0);
+
+  // On init
+  useEffect(() => {
+    console.log('progressWidth', progressWidth);
+    console.log('creditPercentage', creditPercentage);
+    if (props.currentCredits / props.maxCredits !== creditPercentage) {
+      setCreditPercentage(props.currentCredits / props.maxCredits);
+    }
+    const tot = (totalWidth - 0.04 * width) * creditPercentage;
+    setProgressWidth(tot);
+  }, [props, progressWidth, creditPercentage, totalWidth]);
+
+  // State-dependent Styles
+  const courseBar = {
+    backgroundColor: mainColor,
+    transform: 'skewX(-15deg)',
+    width: totalWidth,
+    height: '3rem',
+    borderRadius: '0.5rem',
+    borderTopLeftRadius: '0rem',
+    textAlign: 'right',
+    fontWeight: 'bold',
+    paddingRight: '2.5%',
+  };
+
+  const progressBar = {
+    backgroundColor: mainColor,
+    width: progressWidth,
+    height: '2.25rem',
+    borderRadius: '0.5rem',
+    borderTopLeftRadius: '0rem',
+    paddingTop: '0.75rem',
+    paddingRight: '5%rem',
+  };
+
+  const totalBar = {
+    backgroundColor: subColor,
+    width: totalWidth - width * 0.04,
+    height: '3rem',
+    borderRadius: '0.5rem',
+    borderTopLeftRadius: '0rem',
+  };
+
+  const titleTab = {
+    backgroundColor: mainColor,
+    marginTop: '1rem',
+    width: '12rem',
+    height: '1rem',
+    padding: '0.5rem',
+    transform: 'perspective(1rem) rotateX(2.5deg)',
+    marginLeft: '0.675em',
+    borderTopLeftRadius: '0.5rem',
+    borderTopRightRadius: '0.5rem',
+    fontWeight: 'bold',
+  };
+
+  const title = {
+    position: 'relative',
+    bottom: '4.7rem',
+    // left: '2rem',
+    fontWeight: 'bold',
+  };
+
+  const totalNum = {
+    position: 'relative',
+    bottom: '2.25rem',
+    fontWeight: 'bold',
+    width: '100%',
+    textAlign: 'right',
+  };
+
+  const currNum = {
+    position: 'relative',
+    bottom: '3.5rem',
+    left:
+      progressWidth - width * 0.03 > 0.03 * width
+        ? progressWidth - width * 0.03
+        : width * 0.01,
+    width: '2rem',
+    fontWeight: 'bold',
+  };
+
+  // Related Functions
+
+  return (
+    <div
+      style={{
+        width: '65%',
+        height: '6rem',
+        marginLeft: '5rem',
+        marginTop: '1rem',
+      }}
+    >
+      {/* <div style={titleTab}></div> */}
+      <div style={courseBar}>
+        <div style={totalBar}>
+          <div style={progressBar}></div>
+        </div>
+        <div style={totalNum}>{props.maxCredits}</div>
+      </div>
+      <div style={title}>
+        {props.section}: {props.maxCredits}
+      </div>
+      {/* <div style={totalNum}></div> */}
+      <div style={currNum}>
+        {props.currentCredits !== props.maxCredits
+          ? props.currentCredits
+          : null}
+      </div>
+    </div>
+  );
 }
+
+// Static Styles
 
 export default CourseBar;

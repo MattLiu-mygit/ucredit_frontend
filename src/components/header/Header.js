@@ -25,7 +25,6 @@ const titleStyle = {
 };
 
 const bannerStyle = {
-  width: '100%',
   height: '5rem',
   backgroundColor: '#3399ff',
   textAlign: 'left',
