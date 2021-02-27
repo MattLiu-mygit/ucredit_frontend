@@ -13,7 +13,7 @@ function Content() {
 
   return (
     <div>
-      <div style={userTitle}>{userName}'s 4 Year Plan</div>
+      <div style={userTitle}>{userName}'s 4 Year Planning</div>
       <div style={{ width: window.innerWidth * 0.7 }}>
         <CourseBar
           majorCredits={majorCredits}
