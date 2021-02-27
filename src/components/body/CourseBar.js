@@ -31,10 +31,10 @@ function CourseBar(props) {
   // State-dependent Styles
   const courseBar = {
     backgroundColor: mainColor,
-    //transform: 'skewX(-15deg)',
+    transform: 'skewX(-15deg)',
     width: totalWidth,
     height: '3rem',
-    borderRadius: '2rem',
+    borderRadius: '0.5rem',
     textAlign: 'right',
     fontWeight: 'bold',
     paddingRight: width * 0.015,
@@ -45,7 +45,7 @@ function CourseBar(props) {
     backgroundColor: mainColor,
     width: progressWidth,
     height: '2.25rem',
-    borderRadius: '2rem',
+    borderRadius: '0.5rem',
     paddingTop: '0.75rem',
     paddingRight: '5%rem',
   };
@@ -54,7 +54,7 @@ function CourseBar(props) {
     backgroundColor: subColor,
     width: totalWidth - width * 0.03,
     height: '3rem',
-    borderRadius: '2rem',
+    borderRadius: '0.5rem',
   };
 
   // const titleTab = {
